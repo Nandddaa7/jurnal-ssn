@@ -1,0 +1,10 @@
+# GET http://localhost:3000/api/journals
+
+POST http://localhost:3000/api/journals
+Content-Type: application/json
+
+{
+  "date": "2024-07-05",
+  "activity": "Isi jurnal",
+  "notes": "Isi jurnal"
+}
