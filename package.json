@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "date-fns": "^3.6.0",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.4.5",
+    "mongose": "^0.0.2-security",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18"
