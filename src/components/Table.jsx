@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { format, parseISO, getDay } from "date-fns";
+import { format, parseISO } from "date-fns";
 import idLocale from "date-fns/locale/id";
 import ConfirmationModal from "./ConfirmationModal";
 
@@ -61,7 +61,7 @@ const Table = ({ journals, editJournal, deleteJournal }) => {
               Tanggal
             </th>
             <th className="py-2 px-4 border-b border-gray-200">Kegiatan</th>
-            <th className="py-2 px-4 border-b border-gray-200">Catatan</th>
+            {/* <th className="py-2 px-4 border-b border-gray-200">Catatan</th> */}
             <th className="py-2 px-4 border-b border-gray-200">Aksi</th>
           </tr>
         </thead>
@@ -84,9 +84,9 @@ const Table = ({ journals, editJournal, deleteJournal }) => {
               <td className="py-2 px-4 border-b border-gray-200">
                 {journal.activity}
               </td>
-              <td className="py-2 px-4 border-b border-gray-200">
+              {/* <td className="py-2 px-4 border-b border-gray-200">
                 {journal.notes}
-              </td>
+              </td> */}
               <td className="py-2 px-4 border-b border-gray-200 flex justify-around space-x-3">
                 <button
                   onClick={() => editJournal(journal)}
