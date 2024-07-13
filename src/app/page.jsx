@@ -20,7 +20,7 @@ const App = () => {
   const [lodingData, setLoadingData] = useState(true);
 
   useEffect(() => {
-    fetch("/api/journals")
+    fetch("/api/journal")
       .then((response) => response.json())
       .then((data) => {
         setJournals(data.journals);
