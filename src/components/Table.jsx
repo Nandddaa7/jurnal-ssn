@@ -81,7 +81,7 @@ const Table = ({ journals, editJournal, deleteJournal }) => {
                   locale: idLocale,
                 })}
               </td>
-              <td className="py-2 px-4 border-b border-gray-200 min-w-60">
+              <td className="py-2 px-4 border-b border-gray-200 min-w-96">
                 {journal.activity}
               </td>
               {/* <td className="py-2 px-4 border-b border-gray-200">
