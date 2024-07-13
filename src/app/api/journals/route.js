@@ -66,6 +66,8 @@ export async function PUT(request) {
       });
     }
 
+    updateData.date = date;
+    updateData.activity = activity;
     updateData.lastEdit = Date.now();
 
     const client = await clientPromise;
@@ -93,6 +95,7 @@ export async function PUT(request) {
     });
   }
 }
+
 
 export async function DELETE(request) {
   try {
