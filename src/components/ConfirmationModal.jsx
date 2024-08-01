@@ -1,26 +1,28 @@
 import React from "react";
+import { Button } from "@/components/ui/button"
+
 
 const ConfirmationModal = ({ isOpen, onCancel, onConfirm }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded shadow-lg w-full max-w-sm">
+    <div className="fixed inset-0 bg-black/70 bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white dark:bg-slate-900 p-6 rounded shadow-lg w-full max-w-sm">
         <h2 className="text-2xl font-bold mb-4">Konfirmasi Hapus</h2>
-        <p className="text-gray-700 mb-4">Anda yakin ingin menghapus jurnal ini?</p>
-        <div className="flex justify-end">
-          <button
+        <p className=" mb-4">Anda yakin ingin menghapus jurnal ini?</p>
+        <div className="flex justify-end space-x-2">
+          <Button variant="outline"
             onClick={onCancel}
-            className="bg-gray-500 text-white p-2 rounded mr-2 hover:bg-gray-600"
+           
           >
             Batal
-          </button>
-          <button
+          </Button>
+          <Button variant="destructive"
             onClick={onConfirm}
-            className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
+        
           >
             Hapus
-          </button>
+          </Button>
         </div>
       </div>
     </div>

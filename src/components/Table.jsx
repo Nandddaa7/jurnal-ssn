@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/components/ui/Table";
 import ConfirmationModal from "./ConfirmationModal";
 
 const DataTable = ({ journals, editJournal, deleteJournal }) => {
@@ -57,19 +57,27 @@ const DataTable = ({ journals, editJournal, deleteJournal }) => {
 
   return (
     <div className="overflow-x-auto">
-      <Table className="min-w-full  shadow-md rounded mt-6 text-center">
+      <Table className="min-w-full  shadow-md rounded mt-6 text-center ">
         <TableHeader>
           <TableRow>
-            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">No</TableHead>
-            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">Hari</TableHead>
+            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">
+              No
+            </TableHead>
+            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">
+              Hari
+            </TableHead>
             <TableHead
               className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center cursor-pointer"
               onClick={() => handleSort("date")}
             >
               Tanggal
             </TableHead>
-            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">Kegiatan</TableHead>
-            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">Aksi</TableHead>
+            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">
+              Kegiatan
+            </TableHead>
+            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">
+              Aksi
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -82,7 +90,9 @@ const DataTable = ({ journals, editJournal, deleteJournal }) => {
                 {format(parseISO(journal.date), "EEEE", { locale: idLocale })}
               </TableCell>
               <TableCell className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center whitespace-nowrap">
-                {format(parseISO(journal.date), "dd MMMM yyyy", { locale: idLocale })}
+                {format(parseISO(journal.date), "dd MMMM yyyy", {
+                  locale: idLocale,
+                })}
               </TableCell>
               <TableCell className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center min-w-96">
                 {journal.activity}

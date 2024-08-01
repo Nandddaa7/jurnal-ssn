@@ -7,7 +7,7 @@ const Header = ({ setIsModalOpen }) => {
     <div className="fixed top-0 left-0 right-0  shadow-md z-10 py-2 px-4 md:px-36 flex justify-between items-center backdrop-blur-sm  dark:shadow-gray-200/20">
       <h1 className="text-2xl font-bold">Jurnal PKL</h1>
       <div className=" flex space-x-4 items-center">
-        <Button
+        <Button variant="outline"
           onClick={() => setIsModalOpen(true)}
           className=""
         >
