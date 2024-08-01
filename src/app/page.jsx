@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
-import Table from "../components/Table";
+import DataTable from "../components/Table";
 import LoadingTable from "@/components/LoadingTable";
 
 const App = () => {
@@ -85,7 +85,7 @@ const App = () => {
   };
 
   return (
-    <div className="py-16 px-6 bg-gray-100 min-h-screen">
+    <div className="py-16 px-6  min-h-screen">
       <Header setIsModalOpen={setIsModalOpen} />
       {isModalOpen && (
         <Modal
@@ -99,7 +99,7 @@ const App = () => {
         />
       )}
       {!lodingData ? (
-        <Table
+        <DataTable
           journals={journals}
           editJournal={editJournal}
           deleteJournal={deleteJournal}

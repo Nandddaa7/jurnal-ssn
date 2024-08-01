@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { format, parseISO } from "date-fns";
 import idLocale from "date-fns/locale/id";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../components/ui/table";
 import ConfirmationModal from "./ConfirmationModal";
 
-const Table = ({ journals, editJournal, deleteJournal }) => {
+const DataTable = ({ journals, editJournal, deleteJournal }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [journalToDelete, setJournalToDelete] = useState(null);
   const [sortOrder, setSortOrder] = useState("asc");
@@ -49,45 +57,37 @@ const Table = ({ journals, editJournal, deleteJournal }) => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full bg-white shadow-md rounded mt-6 text-center ">
-        <thead>
-          <tr>
-            <th className="py-2 px-4 border-b border-gray-200">No</th>
-            <th className="py-2 px-4 border-b border-gray-200">Hari</th>
-            <th
-              className="py-2 px-4 border-b border-gray-200 cursor-pointer"
+      <Table className="min-w-full  shadow-md rounded mt-6 text-center">
+        <TableHeader>
+          <TableRow>
+            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">No</TableHead>
+            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">Hari</TableHead>
+            <TableHead
+              className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center cursor-pointer"
               onClick={() => handleSort("date")}
             >
               Tanggal
-            </th>
-            <th className="py-2 px-4 border-b border-gray-200">Kegiatan</th>
-            {/* <th className="py-2 px-4 border-b border-gray-200">Catatan</th> */}
-            <th className="py-2 px-4 border-b border-gray-200">Aksi</th>
-          </tr>
-        </thead>
-        <tbody>
+            </TableHead>
+            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">Kegiatan</TableHead>
+            <TableHead className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">Aksi</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
           {sortedJournals.map((journal, index) => (
-            <tr key={index}>
-              <td className="py-2 px-4 border-b border-gray-200 text-center">
+            <TableRow key={journal._id}>
+              <TableCell className="py-2 px-4 border-b border-gray-200 dark:border-gray-800  text-center">
                 {index + 1}
-              </td>
-              <td className="py-2 px-4 border-b border-gray-200">
-                {format(parseISO(journal.date), "EEEE", {
-                  locale: idLocale,
-                })}
-              </td>
-              <td className="py-2 px-4 border-b border-gray-200 whitespace-nowrap">
-                {format(parseISO(journal.date), "dd MMMM yyyy", {
-                  locale: idLocale,
-                })}
-              </td>
-              <td className="py-2 px-4 border-b border-gray-200 min-w-96">
+              </TableCell>
+              <TableCell className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center">
+                {format(parseISO(journal.date), "EEEE", { locale: idLocale })}
+              </TableCell>
+              <TableCell className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center whitespace-nowrap">
+                {format(parseISO(journal.date), "dd MMMM yyyy", { locale: idLocale })}
+              </TableCell>
+              <TableCell className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center min-w-96">
                 {journal.activity}
-              </td>
-              {/* <td className="py-2 px-4 border-b border-gray-200">
-                {journal.notes}
-              </td> */}
-              <td className="py-2 px-4 border-b border-gray-200 flex justify-around space-x-3">
+              </TableCell>
+              <TableCell className="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-center flex justify-around space-x-3">
                 <button
                   onClick={() => editJournal(journal)}
                   className="bg-yellow-500 text-white p-1 rounded hover:bg-yellow-600"
@@ -100,11 +100,11 @@ const Table = ({ journals, editJournal, deleteJournal }) => {
                 >
                   Hapus
                 </button>
-              </td>
-            </tr>
+              </TableCell>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
       <ConfirmationModal
         isOpen={showConfirmation}
         onCancel={cancelDelete}
@@ -114,4 +114,4 @@ const Table = ({ journals, editJournal, deleteJournal }) => {
   );
 };
 
-export default Table;
+export default DataTable;

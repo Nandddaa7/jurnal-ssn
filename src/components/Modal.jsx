@@ -20,7 +20,7 @@ const Modal = ({
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded shadow-lg w-full max-w-md">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold mb-4">
           {isEditing ? "Edit Jurnal" : "Tambah Jurnal"}
         </h2>
